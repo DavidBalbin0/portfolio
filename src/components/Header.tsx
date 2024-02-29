@@ -31,11 +31,11 @@ export const Header = () => {
     };
 
     return (
-        <header className={`header ${isOpen ? 'opaque-bg' : ''}`}>
+        <header className={`header ${isOpen || scrolled ? 'opaque-bg' : ''} `}>
             <nav className="navbar">
                 <div className="navbar-brand">
                     <a href="/">
-                        <img src={logo} alt="Logo"/>
+                        <img src={logo} alt="Logo" className={`${!isOpen && !scrolled ? '' : ''}`}/>
                     </a>
                 </div>
                 <div className="navbar-links-large">

@@ -13,12 +13,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    //padding: 0 20px;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .navbar-brand img {
     width: 15vw;
     max-width: 100px;
+    transition: 0.4s ease-in-out;
+  }
+
+  .white-logo {
+    filter: brightness(0) saturate(100%) invert(100%) ;
   }
 
   .navbar-links-large,
@@ -97,18 +104,19 @@
 // Hero.scss
 
 .hero {
-  padding: 150px 20px 50px 20px;
-  display: flex;
-  justify-content: center;
+  height: 90vh;
+  padding: 150px 0 50px 0;
   background-image: url("assets/hero-bg.jpg");
   background-size: cover;
   background-position: bottom;
+  display: flex;
+  justify-content: center;
 
   .container {
     display: flex;
     flex-direction: column;
+    width: 80%;
     z-index: 2;
-    max-width: 600px;
 
     span {
       font-size: 20px;
@@ -126,6 +134,11 @@
       font-weight: 600;
       margin-left: 2px;
       margin-top: 4px;
+
+      span {
+        font-size: 24px;
+        color: $primary-color;
+      }
     }
 
     p {
@@ -135,6 +148,7 @@
       font-size: 18px;
       letter-spacing: 0.8px;
       line-height: 1.5em;
+      max-width: 600px;
     }
 
     .btn-container {
@@ -211,7 +225,8 @@
     width: 0%;
     height: 100%;
     position: absolute;
-    background-color: #fff;
+    background-color: $primary-color;
+
     left: 0;
     top: 0;
     z-index: -1;
@@ -220,8 +235,10 @@
   }
 
   &:hover {
-    color: #121212;
+    //color: #121212;
+    border: 1px solid $primary-color;
     background: transparent;
+    box-shadow: 0 0 15px 5px rgba(94, 43, 210, 0.5);
   }
 
   &:hover::before {
@@ -232,5 +249,75 @@
   }
 }
 
+//Skills
+
+.skills {
+  display: flex;
+  justify-content: center;
+
+  .skills-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #151515;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: -100px;
+    padding: 30px 10px;
+    width: 80%;
+
+    h2 {
+      font-size: 45px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #B8B8B8;
+      font-size: 18px;
+      letter-spacing: 0.8px;
+      line-height: 1.5em;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .container {
+      width: 80%;
+
+      .skill {
+        img {
+          margin: 20px auto;
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}
 
 
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+
+    .logo-container {
+      img {
+        width: 15vw;
+        max-width: 100px;
+      }
+    }
+
+    .copyright {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      row-gap: 20px;
+    }
+  }
+}
