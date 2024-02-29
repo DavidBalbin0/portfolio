@@ -1,5 +1,3 @@
-
-
 // @ts-ignore
 import logo from '../assets/logo.svg';
 import {useEffect, useState} from "react";
@@ -33,7 +31,7 @@ export const Header = () => {
     };
 
     return (
-        <header className="header">
+        <header className={`header ${isOpen ? 'opaque-bg' : ''}`}>
             <nav className="navbar">
                 <div className="navbar-brand">
                     <a href="/">
@@ -41,11 +39,11 @@ export const Header = () => {
                     </a>
                 </div>
                 <div className="navbar-links-large">
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#projects">Projetos</a></li>
-                    </ul>
+
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+
                 </div>
                 <div className="navbar-toggle" onClick={toggleNavbar}>
                     <span></span>
@@ -55,11 +53,9 @@ export const Header = () => {
 
             </nav>
             <div className={`navbar-links-small ${isOpen ? 'active' : ''}`}>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                </ul>
+                    <a href="#home">Início</a>
+                    <a href="#about">Sobre</a>
+                    <a href="#projects">Projetos</a>
             </div>
         </header>
     );
