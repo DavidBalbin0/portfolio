@@ -1,0 +1,20 @@
+@import "reset.css";
+// Variables
+
+$primary-color: #5E2BD2;
+$secondary-color: #2A3443;
+$tertiary-color: #15191D;
+
+body {
+    font-family: 'Ubuntu', 'Roboto',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $tertiary-color;
+    color: white;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
