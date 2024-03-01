@@ -7,8 +7,8 @@ import githubLogo from "../assets/github.svg";
 export const SocialIcons = () => {
     return (
         <div className="social-icon">
-            <a href="#"><img src={linkedinLogo} alt=""/></a>
-            <a href="#"><img src={githubLogo} alt=""/></a>
+            <a href="https://www.linkedin.com/in/david-balbino/" target="_blank"><img src={linkedinLogo} alt=""/></a>
+            <a href="https://github.com/DavidBalbin0" target="_blank"><img src={githubLogo} alt=""/></a>
         </div>
     )
 }

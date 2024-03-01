@@ -1,7 +1,6 @@
 // @ts-ignore
 import logo from '../assets/logo.svg';
 import {useEffect, useState} from "react";
-
 export const Header = () => {
     const [activeLink, setActiveLink] = useState("home");
     const [scrolled, setScrolled] = useState(false);
@@ -30,6 +29,17 @@ export const Header = () => {
         setIsOpen(!isOpen);
     };
 
+    const handleScrollToSection = (sectionId: string, offSet: number) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offset = element.offsetTop - offSet;
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth',
+            })
+        }
+    }
+
     return (
         <header className={`header ${isOpen || scrolled ? 'opaque-bg' : ''} `}>
             <nav className="navbar">
@@ -38,10 +48,11 @@ export const Header = () => {
                         <img src={logo} alt="Logo" className={`${!isOpen && !scrolled ? '' : ''}`}/>
                     </a>
                 </div>
+
                 <div className="navbar-links-large">
 
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
+                    <a href="#" onClick={() => handleScrollToSection('about', 0)}>Home</a>
+                    <a href="#" onClick={() => handleScrollToSection('about', 100)}>About</a>
                     <a href="#projects">Projects</a>
 
                 </div>
@@ -53,9 +64,9 @@ export const Header = () => {
 
             </nav>
             <div className={`navbar-links-small ${isOpen ? 'active' : ''}`}>
-                    <a href="#home">Início</a>
-                    <a href="#about">Sobre</a>
-                    <a href="#projects">Projetos</a>
+                <a href="#home">Início</a>
+                <a href="#about">Sobre</a>
+                <a href="#projects">Projetos</a>
             </div>
         </header>
     );

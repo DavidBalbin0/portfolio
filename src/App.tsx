@@ -2,8 +2,8 @@ import React from 'react';
 import './App.scss';
 import {Header} from "./components/Header";
 import {Hero} from "./components/Hero";
-import {Skills} from "./components/Skills";
 import {Footer} from "./components/Footer";
+import {About} from "./components/About";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
         <Header/>
         <Hero />
-        <Skills/>
+        <About/>
         <Footer />
     </div>
   );

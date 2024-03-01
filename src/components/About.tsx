@@ -2,7 +2,7 @@ import Slider, {Settings} from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export const Skills = () => {
+export const About = () => {
     const skills = [
         {name: 'React', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg'},
         {
@@ -49,21 +49,33 @@ export const Skills = () => {
         ]
     };
     return (
-        <div className="skills">
-            <div className="skills-box">
-                <h2>Skills</h2>
-                <p>
-                    I have experience in a wide range of technologies. Here are a few of the technologies I have worked
-                    with recently:
-                </p>
-                <div className="container">
-                    <Slider {...settings}>
-                        {skills.map((skill, index) => (
-                            <div key={index} className="skill">
-                                <img src={skill.iconUrl} alt={skill.name}/>
-                            </div>
-                        ))}
-                    </Slider>
+        <div>
+            <div className="skills" id="about">
+                <div className="skills-box" >
+                    <h2 >About Me</h2>
+                    <p>
+
+                        At 16, I dove headfirst into the world of software development, starting with the basics,
+                        exploring JavaScript, and later advancing to Java. During this time, I also sought to learn and
+                        understand key programming concepts.
+                    </p>
+                    <p>
+                        Currently, I am studying software development at <a href="https://fiap.com.br">FIAP</a>,
+                        focusing on developing projects and challenges that enhance my skills.
+                    </p>
+                    <p>
+                        I am seeking opportunities where I can continue my professional development and contribute
+                        meaningfully.
+                    </p>
+                    <div className="container">
+                        <Slider {...settings}>
+                            {skills.map((skill, index) => (
+                                <div key={index} className="skill">
+                                    <img src={skill.iconUrl} alt={skill.name}/>
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
             </div>
         </div>
