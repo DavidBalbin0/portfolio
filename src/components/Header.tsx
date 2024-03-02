@@ -51,9 +51,9 @@ export const Header = () => {
 
                 <div className="navbar-links-large">
 
-                    <a href="#" onClick={() => handleScrollToSection('about', 0)}>Home</a>
-                    <a href="#" onClick={() => handleScrollToSection('about', 100)}>About</a>
-                    <a href="#projects">Projects</a>
+                    <a  onClick={() => handleScrollToSection('home', 0)}>Home</a>
+                    <a onClick={() => handleScrollToSection('about', 150)}>About</a>
+                    <a onClick={() => handleScrollToSection('projects', 100)}>Projects</a>
 
                 </div>
                 <div className="navbar-toggle" onClick={toggleNavbar}>
@@ -64,9 +64,9 @@ export const Header = () => {
 
             </nav>
             <div className={`navbar-links-small ${isOpen ? 'active' : ''}`}>
-                <a href="#home">Início</a>
-                <a href="#about">Sobre</a>
-                <a href="#projects">Projetos</a>
+                <a onClick={() => handleScrollToSection('home', 0)}>Início</a>
+                <a onClick={() => handleScrollToSection('about', 150)} href="#about">Sobre</a>
+                <a onClick={() => handleScrollToSection('projects', 100)} href="#projects">Projetos</a>
             </div>
         </header>
     );

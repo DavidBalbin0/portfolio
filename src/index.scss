@@ -18,3 +18,16 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::-webkit-scrollbar {
+    width: 10px; /* largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background: $secondary-color; /* cor de fundo da área de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primary-color; /* cor do botão de rolagem */
+    border-radius: 5px; /* borda arredondada do botão de rolagem */
+}

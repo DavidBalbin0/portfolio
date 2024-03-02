@@ -1,0 +1,40 @@
+import {Post} from "../service/PostRepository";
+
+interface ITag {
+    name: string;
+    icon: string;
+}
+
+interface PostCardProps {
+    imageUrl?: string;
+    title?: string;
+    description?: string;
+    tags: ITag[];
+    repositoryUrl?: string;
+    projectUrl?: string;
+}
+
+export const PostCard = ({id, imageUrl, title, description, tags, repositoryUrl, projectUrl}: Post) => {
+    return (
+       <div className="project-card">
+           <img className="image" src={imageUrl}/>
+           <div className="card-content">
+               <h3>{title}</h3>
+               <p>{description}</p>
+               <div className="tags">
+                   {tags.map((tag, index) => (
+                       <img key={index} src={tag.iconUrl} alt={tag.title}/>
+                   ))}
+               </div>
+
+            </div>
+           <div className="footer">
+               <div className="card-buttons">
+                   {repositoryUrl && <a href={repositoryUrl}> Repository</a>}
+                   {projectUrl && <a href={projectUrl}> Project</a>}
+               </div>
+           </div>
+       </div>
+    );
+
+}

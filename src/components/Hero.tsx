@@ -45,13 +45,13 @@ export const Hero = () => {
     }
 
     return (
-        <section className="hero" >
+        <section className="hero" id="home">
             <div className="container">
                 <span> Welcome, I'm</span>
                 <h1>David Balbino</h1>
                 <h2 className="txt-rotate">{text}<span>|</span></h2>
                 <p>
-                    I'm a full-stack web developer focused on creating efficient applications.
+                    I'm a developer focused on creating efficient applications.
                     I'm constantly seeking new challenges and opportunities to further develop my skills.
                 </p>
                 <SocialIcons />

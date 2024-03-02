@@ -1,9 +1,10 @@
 
 interface ButtonProps {
     text: string;
+    bgColor?: string;
 }
-export const Button = ({ text }: ButtonProps) => {
+export const Button = ({ text, bgColor }: ButtonProps) => {
     return (
-        <button className="btn"><span>{text}</span></button>
+        <button className="btn" style={{ background: bgColor ? bgColor : ''}}><span>{text}</span></button>
     )
 }
