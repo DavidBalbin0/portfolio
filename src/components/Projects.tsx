@@ -12,7 +12,6 @@ export const Projects = () => {
         const fetchData = async () => {
             try {
                 const posts = await getAllPosts();
-                console.log(posts);
                 setPosts(posts);
                 setLoading(false);
             } catch (error) {

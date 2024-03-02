@@ -7,9 +7,6 @@ const credentials = {
     secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY || "",
 };
 
-console.log(credentials);
-
-
 const S3 = new S3Client({region: "us-east-1",credentials: credentials});
 
 const bucketName = "david-balbino-portifolio-bucket";
