@@ -18,7 +18,7 @@ Explore the projects, discover their functionalities, and learn a bit more about
 * Use of SCSS for styling, ensuring an attractive and responsive visual interface.
 * Secure image loading through [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), providing a reliable and protected viewing experience.
 
-##Content Management
+## Content Management
 
 I integrated DATO CMS to manage the content of my portfolio, offering a friendly and efficient interface for adding, editing, and organizing projects. The use of a CMS simplifies the process of updating the portfolio, allowing me to focus more on creating projects and less on maintaining the website. Additionally, it enables easier collaboration with other team members, if applicable.
 
