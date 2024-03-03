@@ -8,7 +8,7 @@ export const Hero = () => {
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const [index, setIndex] = useState(1);
-    const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+    const toRotate = [ "Software Developer Student", "Web Developer", "Back-End", "Front-End", "Full-Stack" ];
     const period = 2000;
 
     useEffect(() => {
