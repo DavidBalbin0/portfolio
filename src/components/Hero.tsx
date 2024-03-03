@@ -56,7 +56,9 @@ export const Hero = () => {
                 </p>
                 <SocialIcons />
                 <div className="btn-container">
-                    <Button text={"Let's Talk"} />
+                    <a href="mailto:debarbino@gmail.com">
+                        <Button text={"Let's Talk"} />
+                    </a>
                 </div>
             </div>
         </section>

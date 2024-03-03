@@ -158,6 +158,8 @@
     .btn-container {
       margin-top: 60px;
       max-width: 200px;
+      
+
     }
   }
 }
@@ -209,6 +211,7 @@
 // Button
 
 .btn {
+  cursor: pointer;
   font-weight: 700;
   color: #fff;
   border: 1px solid #fff;
@@ -219,6 +222,7 @@
   background: rgba(217, 217, 217, 0.1);
   transition: 0.3s ease-in-out;
   border-radius: 10px;
+
 
   span {
     z-index: 1;
