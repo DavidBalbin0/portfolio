@@ -1,23 +1,9 @@
-import {Post} from "../service/PostRepository";
+import Post from "../models/Post";
 
-interface ITag {
-    name: string;
-    icon: string;
-}
-
-interface PostCardProps {
-    imageUrl?: string;
-    title?: string;
-    description?: string;
-    tags: ITag[];
-    repositoryUrl?: string;
-    projectUrl?: string;
-}
-
-export const PostCard = ({id, imageUrl, title, description, tags, repositoryUrl, projectUrl}: Post) => {
+export const PostCard = ({id, imageKey, title, description, tags, repositoryUrl, projectUrl}: Post) => {
     return (
        <div className="project-card">
-           <img className="image" src={imageUrl}/>
+           <img className="image" src={imageKey}/>
            <div className="card-content">
                <h3>{title}</h3>
                <p>{description}</p>

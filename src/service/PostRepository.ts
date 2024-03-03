@@ -1,5 +1,6 @@
 import cmsService from "../infra/DatoCms/cmsService";
 import getImageFromS3 from "../infra/aws/awsS3Service";
+import Post from "../models/Post";
 
 const queryGetAllPosts =
     `
@@ -19,33 +20,11 @@ const queryGetAllPosts =
             }
         `;
 
-export interface Tag {
-    title: string;
-    iconUrl: string;
-}
-
-export interface Post {
-    id: string;
-    imageUrl: string;
-    title: string;
-    description: string;
-    tags: Tag[];
-    repositoryUrl: string;
-    projectUrl: string;
-}
 
 interface ResponseAllPosts {
     data: {
-        allPosts: {
-            id: string;
-            imageKey: string;
-            title: string;
-            description: string;
-            tags: Tag[];
-            repositoryUrl: string;
-            projectUrl: string;
-        }[];
-    };
+        allPosts: Post[]
+    }
 }
 
 export const getAllPosts = async (): Promise<Post[]> => {
@@ -55,7 +34,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
             const posts: Post[] = await Promise.all(
                 response.data.allPosts.map(async (post) => ({
                     id: post.id,
-                    imageUrl: await fetchImageUrl(post.imageKey),
+                    imageKey: await fetchImageUrl(post.imageKey),
                     title: post.title,
                     projectUrl: post.projectUrl,
                     tags: post.tags,

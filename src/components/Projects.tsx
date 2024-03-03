@@ -1,6 +1,8 @@
-import {getAllPosts, Post} from "../service/PostRepository";
+import {getAllPosts} from "../service/PostRepository";
 import {useEffect, useState} from "react";
 import {PostCard} from "./PostCard";
+import Post from "../models/Post";
+
 
 export const Projects = () => {
     const [loading, setLoading] = useState(true);

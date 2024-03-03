@@ -1,16 +1,21 @@
 import Slider, {Settings} from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {useEffect, useState} from "react";
+import {getAllTags} from "../service/TagRepository";
+import Tag from "../models/Tag";
+import {suffleArray} from "../utils/suffleArray";
 
 export const About = () => {
-    const skills = [
-        {name: 'React', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg'},
-        {
-            name: 'Spring',
-            iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg'
-        },
-        {name: 'Node', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg'},
-    ]
+    const [tags, setTags] = useState<Tag[]>([])
+
+    useEffect(() => {
+      const fetchTags = async () => {
+          const tags = await getAllTags()
+          setTags(suffleArray(tags))
+      }
+      fetchTags()
+    }, [])
     const settings: Settings = {
         dots: true,
         infinite: true,
@@ -54,7 +59,6 @@ export const About = () => {
                 <div className="skills-box" >
                     <h2 >About Me</h2>
                     <p>
-
                         At 16, I dove headfirst into the world of software development, starting with the basics,
                         exploring JavaScript, and later advancing to Java. During this time, I also sought to learn and
                         understand key programming concepts.
@@ -69,11 +73,14 @@ export const About = () => {
                     </p>
                     <div className="container">
                         <Slider {...settings}>
-                            {skills.map((skill, index) => (
-                                <div key={index} className="skill">
-                                    <img src={skill.iconUrl} alt={skill.name}/>
-                                </div>
-                            ))}
+                            {
+                                tags.map(tag=> (
+                                    <div key={tag.id} className="skill">
+                                        <img src={tag.iconUrl} alt={tag.title}/>
+                                    </div>
+                                )
+
+                            )}
                         </Slider>
                     </div>
                 </div>
