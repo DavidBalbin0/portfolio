@@ -65,8 +65,8 @@ export const Header = () => {
             </nav>
             <div className={`navbar-links-small ${isOpen ? 'active' : ''}`}>
                 <a onClick={() => handleScrollToSection('home', 0)}>Início</a>
-                <a onClick={() => handleScrollToSection('about', 150)} href="#about">Sobre</a>
-                <a onClick={() => handleScrollToSection('projects', 100)} href="#projects">Projetos</a>
+                <a onClick={() => handleScrollToSection('about', 150)} >Sobre</a>
+                <a onClick={() => handleScrollToSection('projects', 100)} >Projetos</a>
             </div>
         </header>
     );
