@@ -1,14 +1,33 @@
 // @ts-ignore
 import logo from '../assets/logo.svg';
 import {useEffect, useState} from "react";
+
 export const Header = () => {
-    const [activeLink, setActiveLink] = useState("home");
+    const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
 
     const [isOpen, setIsOpen] = useState(false);
 
 
     useEffect(() => {
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.80
+            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(entry.target.id)
+                    }
+                })
+            }, options)
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section)
+            })
+
+
             const onScroll = () => {
                 if (window.scrollY > 50) {
                     setScrolled(true);
@@ -17,13 +36,12 @@ export const Header = () => {
                 }
             }
             window.addEventListener("scroll", onScroll);
-            return () => window.removeEventListener("scroll", onScroll);
+            return () => {
+                observer.disconnect();
+                window.removeEventListener("scroll", onScroll);
+            }
         }, []
     )
-
-    const onUpdateActiveLink = (link: string) => {
-        setActiveLink(link);
-    }
 
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
@@ -51,22 +69,25 @@ export const Header = () => {
 
                 <div className="navbar-links-large">
 
-                    <a  onClick={() => handleScrollToSection('home', 0)}>Home</a>
-                    <a onClick={() => handleScrollToSection('about', 150)}>About</a>
-                    <a onClick={() => handleScrollToSection('projects', 100)}>Projects</a>
+                    <a onClick={() => handleScrollToSection('home', 0)}
+                       className={activeLink === 'home' ? 'active' : ""}>Home</a>
+                    <a onClick={() => handleScrollToSection('about', 150)}
+                       className={activeLink === 'about' ? 'active' : ""}>About</a>
+                    <a onClick={() => handleScrollToSection('projects', 100)}
+                       className={activeLink === 'projects' ? 'active' : ""}>Projects</a>
 
                 </div>
-                <div className="navbar-toggle" onClick={toggleNavbar}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div className={`navbar-toggle ${isOpen ? 'open' : ''}`} onClick={toggleNavbar}>
+                    <span className="top-line"></span>
+                    <span className="middle-line"></span>
+                    <span className="bottom-line"></span>
                 </div>
 
             </nav>
             <div className={`navbar-links-small ${isOpen ? 'active' : ''}`}>
-                <a onClick={() => handleScrollToSection('home', 0)}>Início</a>
-                <a onClick={() => handleScrollToSection('about', 150)} >Sobre</a>
-                <a onClick={() => handleScrollToSection('projects', 100)} >Projetos</a>
+            <a onClick={() => handleScrollToSection('home', 0)} className={activeLink === 'home' ? 'active' : ""}>Início</a>
+                <a onClick={() => handleScrollToSection('about', 150)} className={activeLink === 'about' ? 'active' : ""}>Sobre</a>
+                <a onClick={() => handleScrollToSection('projects', 100)} className={activeLink === 'projects' ? 'active' : ""}>Projetos</a>
             </div>
         </header>
     );

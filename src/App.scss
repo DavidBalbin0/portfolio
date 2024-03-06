@@ -37,7 +37,7 @@
       opacity: 0.75;
       margin-left: 40px;
 
-      &:hover, .active {
+      &:hover, &.active {
         opacity: 1;
       }
 
@@ -48,12 +48,33 @@
     display: none;
     cursor: pointer;
 
+
+    &.open {
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      .top-line {
+        transform-origin: right;
+        width: 30px;
+        transform: rotate(-45deg) translateX(3px);
+      }
+      .middle-line {
+        transform: translateX(20px);
+        opacity: 0;
+      }
+      .bottom-line {
+        width: 30px;
+        transform-origin: right ;
+        transform: rotate(45deg)  translateX(3px);
+      }
+    }
+
     span {
       display: block;
-      width: 25px;
+      width: 28px;
       height: 3px;
       background-color: white;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      border-radius: 2px;
     }
   }
 

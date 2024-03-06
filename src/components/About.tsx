@@ -6,6 +6,7 @@ import {getAllTags} from "../service/TagRepository";
 import Tag from "../models/Tag";
 import {suffleArray} from "../utils/suffleArray";
 
+
 export const About = () => {
     const [tags, setTags] = useState<Tag[]>([])
 
@@ -54,8 +55,8 @@ export const About = () => {
         ]
     };
     return (
-        <div>
-            <div className="skills" id="about">
+        <section id="about">
+            <div className="skills" >
                 <div className="skills-box" >
                     <h2 >About Me</h2>
                     <p>
@@ -85,6 +86,6 @@ export const About = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
